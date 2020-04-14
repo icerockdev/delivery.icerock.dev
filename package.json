@@ -4,7 +4,7 @@
   "description": "Icerock webpage",
   "scripts": {
     "start": "nodemon --exec yarn watch --watch src/pages.js",
-    "build": "webpack --config webpack-prod.config.js --colors --optimize-minimize && copyfiles -f src/assets/favicon/* public",
+    "build": "webpack --config webpack-prod.config.js --colors --optimize-minimize && copyfiles -f src/assets/favicon/* public && mv public docs",
     "watch": "webpack-dev-server --config webpack-dev.config.js --watch --colors -d"
   },
   "keywords": [],

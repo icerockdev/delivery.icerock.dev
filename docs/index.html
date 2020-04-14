@@ -1,0 +1,814 @@
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="en">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title> Платформа для доставки товаров - мобильное приложение для доставки товаров, управление курьерами, мобильное
+    приложение витрины товаров</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700;900&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;800&display=swap" rel="stylesheet">
+  <link rel="manifest" href="site.webmanifest">
+
+  <meta name="description" content="">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <style>
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      width: 100vw;
+      height: 100%;
+      height: 100vh;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+
+    .preloader__spinner {
+      animation: spin 1s infinite linear;
+      height: 48px;
+      width: 48px;
+    }
+  </style>
+<link href="././main.0e994993558fffaac505.css" rel="stylesheet"></head>
+
+<body>
+    
+    <div class="preloader" id="preloader">
+      <div class="preloader__spinner">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+          <path fill="#d40000" fill-opacity="0" d="M.001 0h48v48h-48z" />
+          <path
+            d="M45.185 24.001a21.186 21.186 0 01-13.078 19.574 21.186 21.186 0 01-23.089-4.593 21.186 21.186 0 01-4.593-23.089A21.186 21.186 0 0124 2.815"
+            fill="none" stroke="#55439d" stroke-width="5.62772017" stroke-linecap="round" /></svg>
+      </div>
+    </div>  
+    <div class="modal" id="contact_modal">
+      <div class="modal__wrapper">
+        <div class="modal__content">
+          <div class="modal__close" onClick="hideContactModal()">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0.439362 0.439339C-0.146454 1.02512 -0.146454 1.97489 0.439362 2.56068L6.87869 9.00001L0.468781 15.4099C-0.117035 15.9957 -0.117035 16.9454 0.468781 17.5312C1.0546 18.117 2.0043 18.117 2.59012 17.5312L9.00003 11.1213L15.2886 17.4099C15.8744 17.9957 16.8241 17.9957 17.4099 17.4099C17.9958 16.8241 17.9958 15.8744 17.4099 15.2886L11.1214 9.00001L17.4394 2.68198C18.0252 2.0962 18.0252 1.14646 17.4394 0.560677C16.8535 -0.0251083 15.9038 -0.0251083 15.318 0.560677L9.00003 6.87867L2.5607 0.439339C1.97488 -0.146446 1.02518 -0.146446 0.439362 0.439339Z"
+                fill="#55439D" />
+            </svg>
+    
+          </div>
+    
+          <div class="center">
+    
+            <div class="subheading modal__subheading">
+              Заявка на консультацию
+            </div>
+    
+            <div class="description">
+              Наш менеджер свяжется с вами в ближайшее время
+            </div>
+          </div>
+    
+          <form class="modal__inputs" id="contact_form">
+            
+            <div class="textinput">
+              <input type="text" class="textinput__input" name=name value="" id="input_name" />
+              <label for="name" class="textinput__label">Имя *</label>
+              <div class="textinput__error">
+                Пожалуйста, заполните это поле
+              </div>
+            </div>        
+            <div class="textinput">
+              <input type="text" class="textinput__input" name=phone value="" id="input_phone" />
+              <label for="phone" class="textinput__label">Телефон *</label>
+              <div class="textinput__error">
+                Пожалуйста, заполните это поле
+              </div>
+            </div>        
+            <div class="textinput">
+              <input type="text" class="textinput__input" name=comment value="" id="input_comment" />
+              <label for="comment" class="textinput__label">Комментарий</label>
+              <div class="textinput__error">
+                Пожалуйста, заполните это поле
+              </div>
+            </div>
+            
+            <div class="captcha">
+              <input type="hidden" name="captcha" id="input_captcha" value="" />
+              <div id="captcha" class="captcha__container"></div>
+              <div class="captcha__error">
+                Пожалуйста, заполните капчу
+              </div>
+            </div>
+            
+            <script>
+              var onCaptchaLoad = function () {
+                grecaptcha.render('captcha', {
+                  sitekey: '6LfuUekUAAAAAD8QJz09bICOPn5ZrmVn4RgsvfAT',
+                  callback: (key) => {
+                    const el = document.getElementById('input_captcha');
+                    el.value = key;
+                    el.parentElement.classList.remove('captcha_error');
+                  },
+                });
+              };
+            </script>
+            
+            <script src="https://www.google.com/recaptcha/api.js?onload=onCaptchaLoad&render=explicit" async defer>
+            </script>
+            
+    <button class="button" onclick= className="button">
+      Отправить</button>
+            
+            <div id="html_element"></div>
+          </form>
+        </div >
+      </div >
+    </div >  
+    <div class="modal" id="success_modal">
+      <div class="modal__wrapper">
+        <div class="modal__content">
+          <div class="modal__close" onClick="hideSuccessModal()">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0.439362 0.439339C-0.146454 1.02512 -0.146454 1.97489 0.439362 2.56068L6.87869 9.00001L0.468781 15.4099C-0.117035 15.9957 -0.117035 16.9454 0.468781 17.5312C1.0546 18.117 2.0043 18.117 2.59012 17.5312L9.00003 11.1213L15.2886 17.4099C15.8744 17.9957 16.8241 17.9957 17.4099 17.4099C17.9958 16.8241 17.9958 15.8744 17.4099 15.2886L11.1214 9.00001L17.4394 2.68198C18.0252 2.0962 18.0252 1.14646 17.4394 0.560677C16.8535 -0.0251083 15.9038 -0.0251083 15.318 0.560677L9.00003 6.87867L2.5607 0.439339C1.97488 -0.146446 1.02518 -0.146446 0.439362 0.439339Z"
+                fill="#55439D" />
+            </svg>
+          </div>
+    
+          <div class="center">
+            <div class="subheading modal__subheading">
+              Спасибо за уделённое время!
+            </div>
+    
+            <div class="description">
+              Наш менеджер свяжется с вами в ближайшее время
+            </div>
+    
+            <div class="modal__inputs" onclick="hideSuccessModal()">
+              
+    <button class="button" onclick= className="button">
+      ОК</button>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </div>  
+    <div class="screen screen_middle title">
+      <div class="container title__container">
+        <div class="title__logo">
+          <img src="./assets/fonts/logo.svg" />
+        </div>
+    
+        <div class="title__text">
+          <div class="title__text_bold">
+            Продавайте онлайн и&nbsp;сохраните клиентов
+          </div>
+    
+          <div class="title__text_condensed">
+            c&nbsp;помощью мобильного приложения по&nbsp;заказу и&nbsp;доставке
+          </div>
+        </div>
+    
+        <div class="title__note">
+          Разработка от&nbsp;3-х дней. Коробочное решение в&nbsp;3&nbsp;раза дешевле индивидуального
+        </div>
+        
+    
+    
+    <button class="button" onclick=showContactModal() className="button">
+              Получить консультацию
+    </button>  </div>
+    </div>  
+    <div class="screen reasons">
+      <div class="container">
+        <div class="reasons__title subheading">
+          Как моему бизнесу поможет приложение? 
+        </div>
+    
+        <div class="reasons__cards">
+          
+          <div class="card">
+            <img src="./assets/fonts/tray.svg" alt="Для ресторанов" class="card__image" />
+          
+            <div class="card__title">
+              Для ресторанов
+            </div>
+          </div>      
+          <div class="card">
+            <img src="./assets/fonts/drug.svg" alt="Для аптек" class="card__image" />
+          
+            <div class="card__title">
+              Для аптек
+            </div>
+          </div>      
+          <div class="card">
+            <img src="./assets/fonts/product.svg" alt="Для для магазинов" class="card__image" />
+          
+            <div class="card__title">
+              Для для магазинов
+            </div>
+          </div>    </div>
+    
+        <div class="reasons__reasons">
+    
+    <div class="reason">
+      <div class="reason__number">
+        1
+      </div>
+    
+      <div class="reason__text">
+        <div class="reason__title">
+          Безопасность
+        </div>
+    
+        <div class="reason__description">      Создаст безопасную альтернативу оффлайн-покупкам во&nbsp;время карантина
+    </div>
+      </div>
+    </div>
+    
+    <div class="reason">
+      <div class="reason__number">
+        2
+      </div>
+    
+      <div class="reason__text">
+        <div class="reason__title">
+          Доставка
+        </div>
+    
+        <div class="reason__description">      Поможет наладить доставку&nbsp;&mdash; есть интеграция с&nbsp;Доставистой или другими местными сервисами
+    </div>
+      </div>
+    </div>
+    
+    <div class="reason">
+      <div class="reason__number">
+        3
+      </div>
+    
+      <div class="reason__text">
+        <div class="reason__title">
+          Поиск клиентов
+        </div>
+    
+        <div class="reason__description">      Сохранит клиентов и&nbsp;поможет найти новых
+    </div>
+      </div>
+    </div>
+    
+    <div class="reason">
+      <div class="reason__number">
+        4
+      </div>
+    
+      <div class="reason__text">
+        <div class="reason__title">
+          Лояльность
+        </div>
+    
+        <div class="reason__description">      Повысит лояльность клиентов&nbsp;&mdash; им&nbsp;удобно делать заказ, они видят, что в&nbsp;приложении есть
+          контент, который интересно смотреть и&nbsp;читать
+    </div>
+      </div>
+    </div>
+    
+    <div class="reason">
+      <div class="reason__number">
+        5
+      </div>
+    
+      <div class="reason__text">
+        <div class="reason__title">
+          Увеличение среднего чека
+        </div>
+    
+        <div class="reason__description">      Увеличит средний чек и&nbsp;кол-во покупок за&nbsp;счёт индивидуальных подборок товаров и&nbsp;информирования об&nbsp;акциях, скидках, предложениях
+    </div>
+      </div>
+    </div>    </div>
+      </div>
+    </div>  
+    <div class="screen graphs">
+      <div class="container">
+    
+        <div class="graphs__text">
+          <div class="subheading graphs__title">
+            Почему важно сделать приложение именно сейчас?
+          </div>
+    
+          <div class="graphs__description">
+            После снятия карантина поведение покупателей изменится. Люди поймут, что доставка&nbsp;&mdash; удобный сервис.
+            Они привыкнут делать заказы онлайн. К&nbsp;тому времени многие компании уже сделают мобильные приложения
+            и&nbsp;организуют доставку. Без этих сервисов сложно будет приспособиться к&nbsp;новым условиям
+            и&nbsp;конкурировать за&nbsp;клиентов. А&nbsp;создавать и&nbsp;раскручивать их&nbsp;с&nbsp;нуля будет поздно.
+          </div>
+        </div>
+    
+        <div class="graphdata graphdata_desktop">
+          <div class="graphdata__graph">
+            <img src="./assets/fonts/graphs.svg" alt="Рынок доставки продуктов" width="100%">
+          </div>
+        </div>
+    
+        <div class="graphdata graphdata_mobile">
+          <div class="graphdata__graph">
+            <img src="./assets/fonts/graphs_mobile.svg" alt="Рынок доставки продуктов" width="100%">
+          </div>
+        </div>
+      </div>
+    </div>  
+    <div class="screen screen_small interaction">
+      <div class="container">
+        <div class="interaction__title subheading center">
+          Приложение позволяет постоянно взаимодействовать с&nbsp;клиентами
+        </div>
+    
+        <div class="interaction__cards">
+    
+    <div class="interaction-card">
+      <img src="./assets/fonts/bell.svg" alt="Уведомления"  class="interaction-card__image" />
+    
+      <div class="interaction-card__title">
+        Уведомления
+      </div>
+      
+      <div class="interaction-card__description">
+              Они быстро получат уведомление о&nbsp;новинках. Ассортимент в&nbsp;приложении автоматически обновляется из&nbsp;вашей CRM
+      </div>    
+    </div>      
+    
+    <div class="interaction-card">
+      <img src="./assets/fonts/content.svg" alt="Интересный контент"  class="interaction-card__image" />
+    
+      <div class="interaction-card__title">
+        Интересный контент
+      </div>
+      
+      <div class="interaction-card__description">
+              В&nbsp;приложение можно добавить вовлекающий контент: видео-рецепты, обзоры, отзывы, видео с&nbsp;кухни
+      </div>    
+    </div>      
+    
+    <div class="interaction-card">
+      <img src="./assets/fonts/clients.svg" alt="Клиентская база"  class="interaction-card__image" />
+    
+      <div class="interaction-card__title">
+        Клиентская база
+      </div>
+      
+      <div class="interaction-card__description">
+              Можно загрузить базу адресов. Вы&nbsp;будете информировать покупателей о&nbsp;скидках, акциях, индивидуальных предложениях
+      </div>    
+    </div>      
+    
+    <div class="interaction-card">
+      <img src="./assets/fonts/bonus.svg" alt="Бонусная программа"  class="interaction-card__image" />
+    
+      <div class="interaction-card__title">
+        Бонусная программа
+      </div>
+      
+      <div class="interaction-card__description">
+              Приложение позволит запустить программы лояльности: ввести баллы, промокоды
+      </div>    
+    </div>
+        </div>
+      </div>
+    </div>  
+    <div class="screen screen_small screen_blank app">
+      <div class="container container_center app__container">
+        <div class="app__title subheading center">
+          Мы&nbsp;сделаем простое и&nbsp;понятное приложение
+        </div>
+    
+        <div class="description">
+          Им&nbsp;удобно пользоваться клиентам и&nbsp;вашим сотрудникам. В&nbsp;приложении есть три интерфейса:
+        </div>
+      </div>
+    
+      <div class="app-carousel">
+        <div class="app-carousel__slider">
+          <div class="app-carousel__slide">
+            <img src="./assets/images/client_1.png" />
+          </div>
+    
+          <div class="app-carousel__slide">
+            <div class="app-carousel__label">Для клиента</div>
+            <img src="./assets/images/client_2.png" />
+          </div>
+    
+          <div class="app-carousel__slide">
+            <img src="./assets/images/client_3.png" />
+          </div>
+    
+          <!-- -->
+    
+          <div class="app-carousel__slide">
+            <img src="./assets/images/constructor_1.png" />
+          </div>
+    
+          <div class="app-carousel__slide">
+            <div class="app-carousel__label">Для сборщика</div>
+            <img src="./assets/images/constructor_2.png" />
+          </div>
+    
+          <div class="app-carousel__slide">
+            <img src="./assets/images/constructor_3.png" />
+          </div>
+    
+          <!-- -->
+    
+          <div class="app-carousel__slide">
+            <img src="./assets/images/courier_1.png" />
+          </div>
+    
+          <div class="app-carousel__slide">
+            <div class="app-carousel__label">Для курьера</div>
+            <img src="./assets/images/courier_2.png" />
+          </div>
+    
+          <div class="app-carousel__slide">
+            <img src="./assets/images/courier_3.png" />
+          </div>
+        </div>
+      </div>
+    </div>  
+    <div class="screen screen_small how">
+      <div class="container container_center">
+        <div class="subheading">
+          Как это работает?
+        </div>
+    
+        <div class="how__description description">
+          У&nbsp;пользователя в&nbsp;системе может быть 3&nbsp;роли. Каждая роль может быть монетизирована, являться частью единой инфраструктуры или быть отдельным независимым подразделением или партнером
+        </div>
+    
+        <div class="how__grid">
+          <img src="./assets/fonts/how_customer.svg" />
+          
+          <div class="how__arrow">
+            <div class="how__arrow-image"></div>
+            
+            <span>
+              Поиск товара
+            </span>
+          </div>      <img src="./assets/fonts/how_platform.svg" />
+          
+          <div class="how__arrow">
+            <div class="how__arrow-image"></div>
+            
+            <span>
+              Оформление заказа и оплата
+            </span>
+          </div>      <img src="./assets/fonts/how_shop.svg" />
+          
+          <div class="how__arrow">
+            <div class="how__arrow-image"></div>
+            
+            <span>
+              Сборка
+            </span>
+          </div>      <img src="./assets/fonts/how_courier.svg" />
+          
+          <div class="how__arrow">
+            <div class="how__arrow-image"></div>
+            
+            <span>
+              Доставка
+            </span>
+          </div>      <img src="./assets/fonts/how_customer.svg" />
+        </div>
+      </div>
+    </div>  
+    <div class="screen screen_small where">
+      <div class="container container_center center">
+    
+        <div class="subheading">
+          Где работает наше приложение?
+        </div>
+    
+        <div class="description where__description">
+          <p>
+            Мы&nbsp;создаем приложения для IOS и&nbsp;Android
+          </p>
+    
+    
+          <p>
+            Поддерживаем мультиплатформенную разработку на&nbsp;языке Kotlin.<br />
+            Он&nbsp;позволяет написать приложение на&nbsp;одном языке сразу под 8&nbsp;платформ </p>
+        </div>
+    
+    
+    
+    <button class="button" onclick=showContactModal() className="button">
+            Заказать консультацию
+    </button>  </div>
+    </div>  
+    <div class="screen screen_small risks">
+      <div class="container">
+        <div class="subheading center">
+          Мы&nbsp;предусмотрели все риски
+        </div>
+    
+        <div class="risks__grid">
+          <div class="risks__card">
+            У&nbsp;нас большой опыт разработки и&nbsp;готовые платформы. Мы&nbsp;в&nbsp;короткие сроки создаем приложения
+            и&nbsp;настраиваем его под конкретный бизнес
+          </div>
+    
+          <div class="risks__card">
+            Приложение быстро выпускаем на&nbsp;рынок&nbsp;&mdash; всего за&nbsp;3&nbsp;рабочих дня
+          </div>
+    
+          <div class="risks__card">
+            Наши приложения работают в&nbsp;рамках законодательства. Мы&nbsp;учитываем все юридические нюансы, поэтому можно
+            не беспокоится о&nbsp;проблемах с&nbsp;налоговой службой и&nbsp;другими инстанциями
+          </div>
+    
+        </div>
+    
+        <div class="center">
+    
+    
+    <button class="button" onclick=showContactModal() className="button">
+              Узнать подробности
+    </button>    </div>
+      </div>
+    </div>  
+    <div class="screen aboutus">
+      <div class="container container_center center">
+        <div class="subheading">
+          Кто мы?
+        </div>
+    
+        <div class="description aboutus__description">
+          Мы&nbsp;&mdash; небольшая команда специалистов из&nbsp;самого сердца Сибири, её&nbsp;технического
+          центра&nbsp;&mdash; Новосибирска. Мы&nbsp;специализируемся на&nbsp;разработке мобильных приложений для Android
+          и&nbsp;IOS. Наши знания и&nbsp;опыт позволяют нам эффективно решать задачи и&nbsp;создавать качественные, удобные
+          и&nbsp;эффективные приложения.
+        </div>
+    
+    
+        <div class="aboutus__gridwrap">
+          <div class="aboutus__grid">
+            
+            <div class="person">
+              <div class="person__wrap">
+                <img src="./assets/images/pogrebnyak.png" alt="Александр Погребняк" class="person__image">
+                <div class="person__name">Александр Погребняк</div>
+                <div class="person__title">Managing Director</div>
+              </div>
+            </div>        
+            <div class="person">
+              <div class="person__wrap">
+                <img src="./assets/fonts/getmanov.svg" alt="Валерий Гетманов" class="person__image">
+                <div class="person__name">Валерий Гетманов</div>
+                <div class="person__title">Business Development Manager</div>
+              </div>
+            </div>        
+            <div class="person">
+              <div class="person__wrap">
+                <img src="./assets/images/mikhailov.png" alt="Алексей Михайлов" class="person__image">
+                <div class="person__name">Алексей Михайлов</div>
+                <div class="person__title">Chief Technology Officer</div>
+              </div>
+            </div>        
+            <div class="person">
+              <div class="person__wrap">
+                <img src="./assets/images/grebenschikov.png" alt="Евгений Гребенщиков" class="person__image">
+                <div class="person__name">Евгений Гребенщиков</div>
+                <div class="person__title">Creative Director</div>
+              </div>
+            </div>        
+            <div class="person">
+              <div class="person__wrap">
+                <img src="./assets/images/chernov.png" alt="Андрей Чернов" class="person__image">
+                <div class="person__name">Андрей Чернов</div>
+                <div class="person__title">iOS Tech Lead</div>
+              </div>
+            </div>        
+            <div class="person">
+              <div class="person__wrap">
+                <img src="./assets/images/schvedov.png" alt="Алексей Шведов" class="person__image">
+                <div class="person__name">Алексей Шведов</div>
+                <div class="person__title">Web Tech Lead</div>
+              </div>
+            </div>      </div>
+        </div>
+      </div>
+    </div>  
+    <div class="screen startup">
+      <div class="container container_center center">
+    
+        <div class="subheading">
+          У&nbsp;нас понятный и&nbsp;прозрачный цикл запуска
+        </div>
+    
+        <div class="description">
+          Разработка приложения занимает от&nbsp;3-х дней
+        </div>
+    
+        <div class="startup__stages">
+          
+          <div class="stage">
+            <img src="./assets/fonts/cloud.svg" alt="Устанавливаем приложение" class="stage__image">
+            <div class="stage__title">
+              Устанавливаем приложение
+            </div>
+          </div>      <img src="./assets/fonts/startup__arrow.svg" alt="" class="startup__arrow">
+          
+          <div class="stage">
+            <img src="./assets/fonts/launch.svg" alt="Запускаем" class="stage__image">
+            <div class="stage__title">
+              Запускаем
+            </div>
+          </div>      <img src="./assets/fonts/startup__arrow.svg" alt="" class="startup__arrow">
+          
+          <div class="stage">
+            <img src="./assets/fonts/check.svg" alt="Предлагаем комплексное решение по маркетингу" class="stage__image">
+            <div class="stage__title">
+              Предлагаем комплексное решение по маркетингу
+            </div>
+          </div>    </div>
+    
+        <div class="startup__opt">Cоздаем рассылку (серия писем по&nbsp;базе клиентов)</div>
+        <div class="startup__opt">Делаем лендинг</div>
+        <div class="startup__opt">Разработаем рекламные кампаний в&nbsp;Yandex и&nbsp;Google</div>
+    
+        <div class="startup__space"></div>
+    
+    
+    
+    <button class="button" onclick=showContactModal() className="button">
+            Узнать подробности
+    </button>  </div>
+    </div>  
+    <div class="screen showcase">
+      <div class="container container_center center">
+    
+        <div class="subheading">
+          Мы&nbsp;уже разработали приложения для
+        </div>
+    
+        <div class="showcase__carousel-wrap">
+          <div class="showcase__arrow showcase__arrow_left">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30.82 33.18L21.66 24L30.82 14.82L28 12L16 24L28 36L30.82 33.18Z" fill="#161616" />
+            </svg>
+          </div>
+    
+          <div class="showcase__carousel">
+            
+            <div class="showcase__phone">
+              <div class="showcase__name">
+                PrimeTime
+              </div>
+            
+              <div class="showcase__text">
+                <div class="showcase__info">
+                  Сервис заказа домашней еды
+                </div>
+            
+                <div class="showcase__url">
+                  <a href="https://primetimecoffee.ru/">https://primetimecoffee.ru/</a>
+                </div>
+            
+              </div>
+            
+              <img src="./assets/images/primetime.png" class="showcase__image" />
+            </div>        
+            <div class="showcase__phone">
+              <div class="showcase__name">
+                ServedIn
+              </div>
+            
+              <div class="showcase__text">
+                <div class="showcase__info">
+                  Приложение позволяет заказывать блюда в&nbsp;апартаменты
+                </div>
+            
+            
+                <div class="showcase__url">
+                  Скоро запуск
+                </div>
+              </div>
+            
+              <img src="./assets/images/servedin.png" class="showcase__image" />
+            </div>        
+            <div class="showcase__phone">
+              <div class="showcase__name">
+                Vkusman
+              </div>
+            
+              <div class="showcase__text">
+                <div class="showcase__info">
+                  Сервис моментальной доставки продуктов
+                </div>
+            
+            
+                <div class="showcase__url">
+                  Скоро запуск
+                </div>
+              </div>
+            
+              <img src="./assets/images/vkusman.png" class="showcase__image" />
+            </div>      </div>
+    
+          <div class="showcase__arrow showcase__arrow_right">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.18 33.18L26.34 24L17.18 14.82L20 12L32 24L20 36L17.18 33.18Z" fill="#161616" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>  
+    <div class="screen screen_small solution">
+      <div class="container container__center center">
+        <div class="subheading solution__title">
+          Мы&nbsp;предлагаем &laquo;коробочное&raquo; решение в&nbsp;собственность или по&nbsp;подписке
+        </div>
+    
+        <div class="solution__grid">
+          <div class="solution__card">
+            <div class="solution__subtitle">SAAS</div>
+            <p>Мобильное приложение с&nbsp;фирменным стилем</p>
+            <p>Данные и&nbsp;сервер находятся у&nbsp;разработчика</p>
+            <p>Разработка от&nbsp;3-х дней</p>
+            <p>Подключение 200 т.руб, ежемесячно 55&nbsp;т.руб</p>
+          </div>
+    
+          <div class="solution__card">
+            <div class="solution__subtitle">&laquo;Коробочное решение&raquo;</div>
+            <p>Создаем фирменное мобильное приложение</p>
+            <p>Сервер и&nbsp;все данные принадлежат вам</p>
+            <p>Можете подключить любой сервис или интеграции</p>
+            <p>Разработка от&nbsp;2-х недель, стоимость&nbsp;&mdash; 1 &minus;1, 5&nbsp;млн. руб</p>
+    
+          </div>
+    
+          <div class="solution__card">
+            <div class="solution__subtitle">Индивидуальная разработка</div>
+            <p>Разрабатываем с&nbsp;&laquo;нуля&raquo; именно под ваш бренд</p>
+            <p>Вы&nbsp;владеете сервером и&nbsp;данными</p>
+            <p>Можете подключить любой сервис или интеграции</p>
+            <p>Разработка от&nbsp;4-х месяцев, стоимость от&nbsp;3&nbsp;млн.руб</p>
+          </div>
+        </div>
+    
+    
+    
+    <button class="button" onclick=showContactModal() className="button">
+            Узнать подробности
+    </button>  </div>
+    </div>  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81805223-8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81805223-8');
+    </script>
+    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+       ym(61810816, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/61810816" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter --><script type="text/javascript" src="././assets/scripts/main.0e994993558fffaac505.js"></script></body>
+
+</html>
