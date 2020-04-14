@@ -1,0 +1,106 @@
+.reasons {
+	&__cards {
+		display: grid;
+		grid-auto-flow: column;
+		grid-template-columns: 1fr;
+		grid-auto-columns: 1fr;
+		column-gap: 10px;
+		row-gap: 10px;
+		margin: 48px 0 10px;
+
+		@include desktop {
+			grid-auto-flow: row;
+			margin-bottom: 24px;
+			line-height: 24pt;
+		}
+	}
+
+	&__reasons {
+		display: grid;
+		grid-auto-flow: row;
+		row-gap: 10px;
+	}
+}
+
+.card {
+	display: flex;
+	border-radius: $radius;
+	background-color: #f4f3f8;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 40px;
+	min-width: 0;
+
+	&__image {
+		margin-right: 15%;
+		flex: 0 1 88px;
+		min-width: 0;
+	}
+
+	&__title {
+		font-size: 18pt;
+		font-weight: 500;
+		flex: 1 1 200px;
+
+		@include tablet {
+			font-size: 12pt;
+			font-weight: 700;
+		}
+	}
+}
+
+.reason {
+	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
+	flex-direction: row;
+	width: 100%;
+
+	&__text {
+		flex: 1;
+		padding: 40px;
+		border: 1px dashed #dbdbde;
+		border-radius: 0 $radius $radius 0;
+		border-left: none;
+
+		@include tablet {
+			border-left: 1px dashed #dbdbde;
+			border-radius: $radius;
+      padding: 24px;
+		}
+	}
+
+	&__title {
+		font-size: 18pt;
+		margin-bottom: 8px;
+
+    @include tablet {
+      font-size: 12pt;
+    }
+  }
+
+	&__description {
+    font-size: 12pt;
+    
+    @include tablet {
+      font-size: 11pt;
+    }
+	}
+
+	&__number {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: $primary;
+		color: white;
+		flex: 0 0 72px;
+		border-radius: $radius 0 0 $radius;
+		font-size: 33pt;
+		font-weight: 300;
+
+		@include tablet {
+			display: none;
+		}
+	}
+}

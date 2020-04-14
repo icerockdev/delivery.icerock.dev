@@ -1,0 +1,46 @@
+.title {
+	background: url("../../assets/images/victoria.jpg") no-repeat 50% 50% $primary_dark;
+	background-size: cover;
+  color: white;
+
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+  }
+  
+  &__logo {
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    font-size: 30pt;
+    text-align: center;
+    max-width: 960px;
+    margin-bottom: 40px;
+
+    @include tablet {
+      font-size: 20pt;
+    }
+
+    &_bold {
+      font-weight: 800;
+    }
+
+    &_condensed {
+      font-weight: 200;
+    }
+  }
+
+  &__note {
+    font-size: 12pt;
+    margin-bottom: 120px;
+    text-align: center;
+
+    @include tablet {
+      font-size: 11pt;
+      margin-bottom: 88px;
+    }
+  }
+}

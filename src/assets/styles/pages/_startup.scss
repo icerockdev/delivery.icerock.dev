@@ -1,0 +1,39 @@
+.startup {
+  &__stages {
+    margin: 65px 0 16px 0;
+  }
+
+  &__opt {
+    font-size: 13pt;
+    color: #161616;
+    margin-bottom: 8px;
+
+    @include tablet {
+      font-size: 11pt;
+      line-height: 16pt;
+    }
+  }
+
+  &__space {
+    height: 65px;
+  }
+}
+
+.stage {
+  margin: 16px;
+  font-size: 18pt;
+  font-weight: 600;
+
+  &__image {
+    margin-bottom: 14px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 18pt;
+
+    @include tablet {
+      font-size: 12pt;
+    }
+  }
+}

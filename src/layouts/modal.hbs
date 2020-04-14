@@ -1,0 +1,39 @@
+{{! IceRock MAG Inc. Use of this source code is governed by the Mozilla Public License 2.0. }}
+
+<div class="modal" id="contact_modal">
+  <div class="modal__wrapper">
+    <div class="modal__content">
+      <div class="modal__close" onClick="hideContactModal()">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.439362 0.439339C-0.146454 1.02512 -0.146454 1.97489 0.439362 2.56068L6.87869 9.00001L0.468781 15.4099C-0.117035 15.9957 -0.117035 16.9454 0.468781 17.5312C1.0546 18.117 2.0043 18.117 2.59012 17.5312L9.00003 11.1213L15.2886 17.4099C15.8744 17.9957 16.8241 17.9957 17.4099 17.4099C17.9958 16.8241 17.9958 15.8744 17.4099 15.2886L11.1214 9.00001L17.4394 2.68198C18.0252 2.0962 18.0252 1.14646 17.4394 0.560677C16.8535 -0.0251083 15.9038 -0.0251083 15.318 0.560677L9.00003 6.87867L2.5607 0.439339C1.97488 -0.146446 1.02518 -0.146446 0.439362 0.439339Z"
+            fill="#55439D" />
+        </svg>
+
+      </div>
+
+      <div class="center">
+
+        <div class="subheading modal__subheading">
+          Заявка на консультацию
+        </div>
+
+        <div class="description">
+          Наш менеджер свяжется с вами в ближайшее время
+        </div>
+      </div>
+
+      <form class="modal__inputs" id="contact_form">
+        {{>input name="name" id="input_name" title="Имя *" autoFocus="1"}}
+        {{>input name="phone" id="input_phone" title="Телефон *"}}
+        {{>input name="comment" id="input_comment" title="Комментарий"}}
+
+        {{>captcha}}
+
+        {{#> button}}Отправить{{/button}}
+        
+        <div id="html_element"></div>
+      </form>
+    </div >
+  </div >
+</div >

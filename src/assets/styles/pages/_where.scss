@@ -1,0 +1,15 @@
+.where {
+  background: $primary_dark;
+  text-align: center;
+  color: white;
+  
+  &__description {
+    margin-bottom: 65px;
+    
+    @include tablet {
+      font-size: 11pt;
+      line-height: 16pt;
+      margin-bottom: 32px;
+    }
+  }
+}

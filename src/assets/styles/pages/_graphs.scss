@@ -1,0 +1,42 @@
+.graphs {
+	background: $primary_dark;
+	color: white;
+
+	&__title.subheading {
+		@include tablet {
+			margin-bottom: 32px;
+		}
+	}
+
+	&__description {
+		font-size: 12pt;
+		line-height: 18pt;
+
+		@include tablet {
+			font-size: 11pt;
+		}
+	}
+
+	&__text {
+		width: 100%;
+		max-width: 1024px;
+	}
+}
+
+.graphdata {
+	margin-top: 80px;
+	
+	&_desktop {
+		@include tablet {
+			display: none;
+		}
+	}
+
+	&_mobile {
+		display: none;
+
+		@include tablet {
+			display: block;
+		}
+	}
+}

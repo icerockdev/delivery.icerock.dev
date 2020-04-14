@@ -1,0 +1,75 @@
+.app {
+	background-color: #f4f3f8;
+	flex-direction: column;
+
+	&.screen {
+		padding-bottom: 0;
+	}
+
+	&__container {
+		padding: 0 40px;
+		box-sizing: border-box;
+	}
+
+	&__title {
+		max-width: 740px;
+		margin-bottom: 24px;
+	}
+
+	&__description {
+		max-width: 740px;
+	}
+}
+
+.app-carousel {
+	background-color: #f4f3f8;
+
+	padding: 64px 0 150px;
+	width: 100%;
+	min-height: auto;
+	max-width: 1330px;
+	margin: auto;
+
+	@include desktop {
+		padding: 40px 0;
+	}
+
+	&__slider {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(9, auto);
+
+		@include large {
+			display: block;
+		}
+	}
+
+	&__slide {
+		padding: 2px;
+		text-align: center;
+		position: relative;
+		padding-top: 50px;
+
+		&:nth-child(3),
+		&:nth-child(6) {
+			margin-right: 20px;
+		}
+
+		img {
+			width: 100%;
+		}
+
+		div {
+			margin-bottom: 24px;
+		}
+	}
+
+	&__label {
+		position: absolute;
+		white-space: nowrap;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, 0);
+		font-size: 12pt;
+	}
+}

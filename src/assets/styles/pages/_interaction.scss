@@ -1,0 +1,55 @@
+.interaction {
+	&__cards {
+		margin-top: 64px;
+		display: grid;
+		column-gap: 20px;
+		row-gap: 40px;
+		align-items: flex-start;
+		grid-template-columns: repeat(4, 1fr);
+		grid-auto-flow: row;
+
+		@include desktop {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include tablet {
+			grid-template-columns: repeat(1, 1fr);
+			row-gap: 48px;
+		}
+	}
+}
+
+.interaction-card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+
+	&__image {
+		margin-bottom: 32px;
+
+		@include tablet {
+			margin-bottom: 24px;
+		}
+	}
+
+	&__title {
+		margin-bottom: 16px;
+		font-size: 18pt;
+
+		@include tablet {
+			font-size: 12pt;
+		}
+	}
+
+	&__description {
+		font-size: 10pt;
+		line-height: 18pt;
+
+		@include tablet {
+			font-size: 11pt;
+			line-height: 16pt;
+		}
+	}
+}

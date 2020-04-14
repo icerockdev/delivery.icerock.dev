@@ -1,0 +1,33 @@
+.risks {
+  &__grid { 
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    margin: 64px 0 32px;
+    grid-auto-flow: column;
+    
+    @include desktop {
+      grid-auto-flow: row;
+      margin-top: 24px;
+    }
+  }
+
+  &__card {
+    padding: 40px;
+    border-radius: $radius;
+    border: 1px dashed #e3e2e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12pt;
+    line-height: 18pt;
+    color: #161616;
+
+    @include tablet {
+      padding: 24px 16px;
+      font-size: 11pt;
+      line-height: 16pt;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{{! IceRock MAG Inc. Use of this source code is governed by the Mozilla Public License 2.0. }}
+
+<div class="captcha">
+  <input type="hidden" name="captcha" id="input_captcha" value="" />
+  <div id="captcha" class="captcha__container"></div>
+  <div class="captcha__error">
+    Пожалуйста, заполните капчу
+  </div>
+</div>
+
+<script>
+  var onCaptchaLoad = function () {
+    grecaptcha.render('captcha', {
+      sitekey: '6LfuUekUAAAAAD8QJz09bICOPn5ZrmVn4RgsvfAT',
+      callback: (key) => {
+        const el = document.getElementById('input_captcha');
+        el.value = key;
+        el.parentElement.classList.remove('captcha_error');
+      },
+    });
+  };
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onCaptchaLoad&render=explicit" async defer>
+</script>

@@ -1,0 +1,37 @@
+body * {
+  font-family: Montserrat;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.subheading {
+  font-size: 32pt;
+  font-weight: 800;
+  margin-bottom: 24px;
+
+  @include tablet {
+    font-size: 18pt;
+    line-height: 24pt;
+    margin-bottom: 12px;
+  }
+}
+
+.description {
+  font-size: 12pt;
+  line-height: 18pt;
+
+  @include tablet {
+    font-size: 11pt;
+    line-height: 16pt;
+  }
+}
+
+.center {
+  text-align: center;
+}

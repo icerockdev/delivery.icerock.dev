@@ -1,0 +1,26 @@
+.button {
+  background: $yellow;
+  border: none;
+  height: 54px;
+  padding: 0 32px;
+  border-radius: $radius;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12pt;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.25s;
+  color: #161616;
+
+  &:hover, &:focus {
+    background-color: #FFE8A6;
+  }
+
+  &:active {
+    background-color: #B29950;
+  }
+
+  @include tablet {
+    padding: 0 26px;
+  }
+}

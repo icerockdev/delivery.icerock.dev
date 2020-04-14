@@ -1,0 +1,56 @@
+.solution {
+	&.screen {
+		padding-top: 0;
+	}
+
+	&__title {
+		margin-bottom: 65px;
+
+		@include tablet {
+			margin-bottom: 32px !important;
+		}
+	}
+
+	&__card {
+		border-radius: $radius;
+		border: 1px dashed #e3e2e6;
+		text-align: center;
+		padding: 30px;
+    font-size: 10pt;
+    line-height: 12pt;
+
+		@include tablet {
+			padding: 16px;
+			font-size: 11pt;
+			line-height: 16pt;
+		}
+
+		p {
+			margin-bottom: 16px;
+		}
+	}
+
+	&__subtitle {
+		font-size: 20pt;
+		margin-bottom: 32px;
+		line-height: 24pt;
+
+		@include tablet {
+			font-size: 12pt;
+		}
+	}
+
+	&__grid {
+		display: grid;
+		column-gap: 10px;
+		row-gap: 10px;
+		grid-auto-flow: column;
+		grid-template-columns: 1fr;
+		grid-auto-columns: 1fr;
+		margin-bottom: 65px;
+
+		@include desktop {
+			grid-auto-flow: row;
+		}
+	}
+}

@@ -1,0 +1,58 @@
+@import "./title";
+@import "./reasons";
+@import "./graphs";
+@import "./interaction";
+@import "./app";
+@import "./how";
+@import "./where";
+@import "./risks";
+@import "./aboutus";
+@import "./startup";
+@import "./showcase";
+@import "./solution";
+@import "./modal";
+@import "./preloader";
+
+.screen {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 150px;
+	width: 100%;
+
+	@include large {
+		padding: 80px;
+	}
+
+	@include desktop {
+		padding: 48px 16px;
+	}
+
+	&_small {
+		min-height: auto;
+	}
+
+	&_blank {
+		padding: 150px 0;
+
+		@include tablet {
+			padding: 48px 0;
+		}
+	}
+}
+
+.container {
+	width: 100%;
+	max-width: 1550px;
+	margin: auto;
+
+	&_center {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+}

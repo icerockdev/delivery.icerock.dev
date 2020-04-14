@@ -1,0 +1,27 @@
+{{! IceRock MAG Inc. Use of this source code is governed by the Mozilla Public License 2.0. }}
+
+<div class="showcase__phone">
+  <div class="showcase__name">
+    {{title}}
+  </div>
+
+  <div class="showcase__text">
+    <div class="showcase__info">
+      {{{info}}}
+    </div>
+
+    {{#if url}}
+    <div class="showcase__url">
+      <a href="{{url}}">{{url}}</a>
+    </div>
+    {{/if}}
+
+    {{#unless url}}
+    <div class="showcase__url">
+      Скоро запуск
+    </div>
+    {{/unless}}
+  </div>
+
+  <img src="{{image}}" class="showcase__image" />
+</div>

@@ -1,0 +1,38 @@
+{{! IceRock MAG Inc. Use of this source code is governed by the Mozilla Public License 2.0. }}
+
+<div class="screen reasons">
+  <div class="container">
+    <div class="reasons__title subheading">
+      Как моему бизнесу поможет приложение? {{ person.firstname }}
+    </div>
+
+    <div class="reasons__cards">
+      {{> card title="Для ресторанов" img="../assets/images/tray.svg" }}
+      {{> card title="Для аптек" img="../assets/images/drug.svg" }}
+      {{> card title="Для для магазинов" img="../assets/images/product.svg" }}
+    </div>
+
+    <div class="reasons__reasons">
+      {{#> reason number="1" title="Безопасность"}}
+      Создаст безопасную альтернативу оффлайн-покупкам во&nbsp;время карантина
+      {{/reason }}
+
+      {{#> reason number="2" title="Доставка"}}
+      Поможет наладить доставку&nbsp;&mdash; есть интеграция с&nbsp;Доставистой или другими местными сервисами
+      {{/reason }}
+
+      {{#> reason number="3" title="Поиск клиентов"}}
+      Сохранит клиентов и&nbsp;поможет найти новых
+      {{/reason }}
+
+      {{#> reason number="4" title="Лояльность"}}
+      Повысит лояльность клиентов&nbsp;&mdash; им&nbsp;удобно делать заказ, они видят, что в&nbsp;приложении есть
+      контент, который интересно смотреть и&nbsp;читать
+      {{/reason }}
+
+      {{#> reason number="5" title="Увеличение среднего чека"}}
+      Увеличит средний чек и&nbsp;кол-во покупок за&nbsp;счёт индивидуальных подборок товаров и&nbsp;информирования об&nbsp;акциях, скидках, предложениях
+      {{/reason }}
+    </div>
+  </div>
+</div>
