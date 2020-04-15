@@ -210,11 +210,15 @@ function getCookie(name) {
 	return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-const getGaId = () => {
-	if (ga && ga.getAll && ga.getAll().length) {
-		return ga.getAll()[0].get("clientId");
+window.getGa = () => {
+	if (window.ga && window.ga.getAll && window.ga.getAll().length) {
+		return window.ga.getAll()[0].get("clientId");
 	}
-	return getCookie("_ga").replace(/^[^\.]+\.[^\.]+\./, "");
+
+	return (
+		(getCookie("_ga") && getCookie("_ga").replace(/^[^\.]+\.[^\.]+\./, "")) ||
+		""
+	);
 };
 
 const onFormSubmit = (event) => {
@@ -248,7 +252,7 @@ const onFormSubmit = (event) => {
 
 	if (hasError) return;
 
-	fetch("https://icerockdev.com/landing-sendmail.php", {
+	fetch("https://m.icerockdev.com/landing-sendmail.php", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json;charset=utf-8",
@@ -258,7 +262,7 @@ const onFormSubmit = (event) => {
 			phone,
 			comment,
 			captcha,
-			googleId: getGaId(),
+			googleId: window.getGa(),
 		}),
 	})
 		.then(() => {
