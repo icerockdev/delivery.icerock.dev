@@ -7,10 +7,10 @@ import "cross-fetch/polyfill";
 import Inputmask from "inputmask";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
-disableBodyScroll();
+disableBodyScroll(document.body);
 
 window.onload = function () {
-	enableBodyScroll();
+	enableBodyScroll(document.body);
 
 	document.getElementById("preloader").classList.add("preloader_inactive");
 
@@ -112,7 +112,7 @@ window.hideModalsOnEscape = (event) => {
 };
 
 window.showContactModal = () => {
-	disableBodyScroll();
+	disableBodyScroll(document.body);
 	const modal = document.getElementById("contact_modal");
 	modal.style.display = "flex";
 	modal.classList.add("modal_active");
@@ -122,7 +122,7 @@ window.showContactModal = () => {
 };
 
 window.showSuccessModal = () => {
-	disableBodyScroll();
+	disableBodyScroll(document.body);
 
 	const modal = document.getElementById("success_modal");
 	modal.style.display = "flex";
@@ -132,7 +132,7 @@ window.showSuccessModal = () => {
 };
 
 window.hideContactModal = () => {
-	enableBodyScroll();
+	enableBodyScroll(document.body);
 	window.removeEventListener("keyup", hideModalsOnEscape);
 
 	if (grecaptcha.reset) {
@@ -153,7 +153,7 @@ window.hideContactModal = () => {
 };
 
 window.hideSuccessModal = () => {
-	enableBodyScroll();
+	enableBodyScroll(document.body);
 	window.removeEventListener("keyup", hideModalsOnEscape);
 
 	const modal = document.getElementById("success_modal");
