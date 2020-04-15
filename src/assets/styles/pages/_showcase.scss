@@ -2,7 +2,8 @@
 	background: $primary_dark;
 	position: relative;
 	color: white;
-
+  user-select: none;
+  
 	&::after {
 		position: absolute;
 		width: 100%;
