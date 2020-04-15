@@ -258,7 +258,7 @@ const onFormSubmit = (event) => {
 			phone,
 			comment,
 			captcha,
-			ga: getGaId(),
+			googleId: getGaId(),
 		}),
 	})
 		.then(() => {
