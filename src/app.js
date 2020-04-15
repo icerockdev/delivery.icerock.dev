@@ -199,6 +199,24 @@ inputs.forEach((input) => {
 	input.addEventListener("blur", onInputBlur);
 });
 
+function getCookie(name) {
+	var matches = document.cookie.match(
+		new RegExp(
+			"(?:^|; )" +
+				name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+				"=([^;]*)"
+		)
+	);
+	return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+const getGaId = () => {
+	if (ga && ga.getAll && ga.getAll().length) {
+		return ga.getAll()[0].get("clientId");
+	}
+	return getCookie("_ga").replace(/^[^\.]+\.[^\.]+\./, "");
+};
+
 const onFormSubmit = (event) => {
 	event.preventDefault();
 	const nameInput = document.getElementById("input_name");
@@ -240,6 +258,7 @@ const onFormSubmit = (event) => {
 			phone,
 			comment,
 			captcha,
+			ga: getGaId(),
 		}),
 	})
 		.then(() => {
