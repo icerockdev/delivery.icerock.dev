@@ -113,7 +113,11 @@ window.hideModalsOnEscape = (event) => {
 
 window.showContactModal = () => {
 	disableBodyScroll(document.body);
-	gtag('event', 'Открытие окна контакта', {'event_category': 'contact', 'event_action': 'contact'});
+
+	if (window.gtag) {
+		window.gtag('event', 'Открытие окна контакта', {'event_category': 'contact', 'event_action': 'contact'});
+	}
+
 	const modal = document.getElementById("contact_modal");
 	modal.style.display = "flex";
 	modal.classList.add("modal_active");
@@ -124,7 +128,10 @@ window.showContactModal = () => {
 
 window.showSuccessModal = () => {
 	disableBodyScroll(document.body);
-	gtag('event', 'Сообщение отправлено', {'event_category': 'contact', 'event_action': 'contact'});
+
+	if (window.gtag) {
+		window.gtag('event', 'Сообщение отправлено', {'event_category': 'contact', 'event_action': 'contact'});
+	}
 
 	const modal = document.getElementById("success_modal");
 	modal.style.display = "flex";
