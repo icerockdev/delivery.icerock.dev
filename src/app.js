@@ -115,7 +115,7 @@ window.showContactModal = () => {
 	disableBodyScroll(document.body);
 
 	if (window.gtag) {
-		window.gtag('event', 'Открытие окна контакта', {'event_category': 'contact', 'event_action': 'contact'});
+		window.gtag('event', 'Открытие окна контакта', {'event_category': 'contact', 'event_action': 'open'});
 	} 
 
 	const modal = document.getElementById("contact_modal");
@@ -130,7 +130,7 @@ window.showSuccessModal = () => {
 	disableBodyScroll(document.body);
 
 	if (window.gtag) {
-		window.gtag('event', 'Сообщение отправлено', {'event_category': 'contact', 'event_action': 'contact'});
+		window.gtag('event', 'Сообщение отправлено', {'event_category': 'contact', 'event_action': 'sent'});
 	}
 
 	const modal = document.getElementById("success_modal");
