@@ -115,7 +115,6 @@ window.showContactModal = () => {
 	disableBodyScroll(document.body);
 
 	if (window.gtag) {
-		console.log('sending gtag event');
 		window.gtag('event', 'Открытие окна контакта', {'event_category': 'contact', 'event_action': 'contact'});
 	} 
 
