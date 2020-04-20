@@ -133,6 +133,10 @@ window.showSuccessModal = () => {
 		window.gtag('event', 'Сообщение отправлено', {'event_category': 'contact', 'event_action': 'sent'});
 	}
 
+	if (window.ym) {
+		window.ym(62077537,'reachGoal','contact_sent')
+	}
+
 	const modal = document.getElementById("success_modal");
 	modal.style.display = "flex";
 	modal.classList.add("modal_active");
