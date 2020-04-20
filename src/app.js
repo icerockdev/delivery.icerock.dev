@@ -9,8 +9,17 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 disableBodyScroll(document.body);
 
+const showModalOnHashChange = () => {
+	if (window.location.hash !== "#order-form") return;
+
+	window.showContactModal();
+};
+
 window.onload = function () {
 	enableBodyScroll(document.body);
+
+	showModalOnHashChange();
+	window.addEventListener("hashchange", showModalOnHashChange);
 
 	document.getElementById("preloader").classList.add("preloader_inactive");
 
@@ -115,8 +124,11 @@ window.showContactModal = () => {
 	disableBodyScroll(document.body);
 
 	if (window.gtag) {
-		window.gtag('event', 'Открытие окна контакта', {'event_category': 'contact', 'event_action': 'open'});
-	} 
+		window.gtag("event", "Открытие окна контакта", {
+			event_category: "contact",
+			event_action: "open",
+		});
+	}
 
 	const modal = document.getElementById("contact_modal");
 	modal.style.display = "flex";
@@ -130,11 +142,14 @@ window.showSuccessModal = () => {
 	disableBodyScroll(document.body);
 
 	if (window.gtag) {
-		window.gtag('event', 'Сообщение отправлено', {'event_category': 'contact', 'event_action': 'sent'});
+		window.gtag("event", "Сообщение отправлено", {
+			event_category: "contact",
+			event_action: "sent",
+		});
 	}
 
 	if (window.ym) {
-		window.ym(62077537,'reachGoal','contact_sent')
+		window.ym(62077537, "reachGoal", "contact_sent");
 	}
 
 	const modal = document.getElementById("success_modal");
@@ -163,6 +178,10 @@ window.hideContactModal = () => {
 	setTimeout(() => {
 		modal.style.display = "none";
 	}, 500);
+
+	if (window.location.hash === "#order-form") {
+		window.location.hash = "";
+	}
 };
 
 window.hideSuccessModal = () => {
@@ -171,6 +190,10 @@ window.hideSuccessModal = () => {
 
 	const modal = document.getElementById("success_modal");
 	modal.classList.remove("modal_active");
+
+	if (window.location.hash === "#order-form") {
+		window.location.hash = "";
+	}
 
 	setTimeout(() => {
 		modal.style.display = "none";
