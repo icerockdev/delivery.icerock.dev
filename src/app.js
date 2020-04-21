@@ -299,6 +299,7 @@ const onFormSubmit = (event) => {
 			comment,
 			captcha,
 			googleId: window.getGa(),
+			referrer: document.referrer || "",
 		}),
 	})
 		.then(() => {
