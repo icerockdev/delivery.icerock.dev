@@ -4,22 +4,51 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81805223-8"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'UA-81805223-8');
 </script>
 
 <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-   ym(62077537, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
+<script type="text/javascript">
+  (function (m, e, t, r, i, k, a) {
+  m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+    m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+  })
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+  ym(62077537, "init", {
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true
+  });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/62077537" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript>
+  <div><img src="https://mc.yandex.ru/watch/62077537" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
 <!-- /Yandex.Metrika counter -->
+
+<!-- Yandex chat -->
+<script type='text/javascript'>
+  (function () {
+    window['yandexChatWidgetCallback'] = function () {
+      try {
+        window.yandexChatWidget = new Ya.ChatWidget({
+          guid: 'c1182e1d-97b4-4446-add4-a8d14ce15565',
+          buttonText: 'Ответим на ваши вопросы',
+          title: 'Чат',
+          theme: 'light',
+          collapsedDesktop: 'never',
+          collapsedTouch: 'always'
+        });
+      } catch (e) { }
+    };
+    var n = document.getElementsByTagName('script')[0],
+      s = document.createElement('script');
+    s.async = true;
+    s.charset = 'UTF-8';
+    s.src = 'https://yastatic.net/s3/chat/widget.js';
+    n.parentNode.insertBefore(s, n);
+  })();
+</script>
+<!-- /Yandex chat -->
