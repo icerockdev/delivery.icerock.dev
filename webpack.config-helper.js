@@ -5,7 +5,7 @@ const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractSASS = new ExtractTextPlugin('./[name].[hash].css');
+const ExtractSASS = new ExtractTextPlugin({ filename: './[name].[md5:contenthash:hex:20].css' });
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const webpack = require('webpack');
@@ -34,7 +34,7 @@ module.exports = (options) => {
     entry: ['./src/app.js'],
     output: {
       path: dest,
-      filename: './assets/scripts/[name].[hash].js',
+      filename: './assets/scripts/[name].[contenthash].js',
       publicPath: './',
     },
     plugins: [
