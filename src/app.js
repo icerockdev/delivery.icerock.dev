@@ -201,9 +201,10 @@ window.hideSuccessModal = () => {
 };
 
 // Phone input mask
-new Inputmask("[\+]9 (999) 999 99 99 [99] [99] [99] [99] [99] [99]", { showMaskOnHover: false, greedy: false }).mask(
-	"input_phone"
-);
+new Inputmask("[+]9 (999) 999 99 99", {
+	showMaskOnHover: false,
+	greedy: false,
+}).mask("input_phone");
 
 // Input helpers
 const onInputFocused = (event) => {
@@ -271,12 +272,13 @@ const onFormSubmit = (event) => {
 
 	let hasError = false;
 
-	if (name.length < 2) {
+	if (name.length < 5) {
 		nameInput.parentElement.classList.add("textinput_error");
 		hasError = true;
 	}
 
-	if (phone.length != 12) {
+	console.log(phone.length);
+	if (phone.length < 6) {
 		phoneInput.parentElement.classList.add("textinput_error");
 		hasError = true;
 	}
