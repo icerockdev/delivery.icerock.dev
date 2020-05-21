@@ -277,7 +277,6 @@ const onFormSubmit = (event) => {
 		hasError = true;
 	}
 
-	console.log(phone.length);
 	if (phone.length < 6) {
 		phoneInput.parentElement.classList.add("textinput_error");
 		hasError = true;
