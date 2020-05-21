@@ -272,7 +272,7 @@ const onFormSubmit = (event) => {
 
 	let hasError = false;
 
-	if (name.length < 5) {
+	if (name.length < 1) {
 		nameInput.parentElement.classList.add("textinput_error");
 		hasError = true;
 	}
