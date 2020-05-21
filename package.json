@@ -7,7 +7,10 @@
     "build": "webpack --config webpack-prod.config.js --colors --optimize-minimize && copyfiles -f src/assets/favicon/* public && rm -rf ./docs && mkdirp docs && mv ./public/* ./docs",
     "watch": "webpack-dev-server --config webpack-dev.config.js --watch --colors -d"
   },
-  "keywords": ["landing", "handlebars"],
+  "keywords": [
+    "landing",
+    "handlebars"
+  ],
   "author": "Icerockdev <info@icerockdev.com>",
   "license": "Mozilla Public License Version 2.0",
   "eslintConfig": {
@@ -47,7 +50,8 @@
     "tiny-slider": "^2.9.2",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "webpack-git-hash": "^1.0.2"
   },
   "dependencies": {
     "body-scroll-lock": "^3.0.1",

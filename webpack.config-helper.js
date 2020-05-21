@@ -9,6 +9,7 @@ const ExtractSASS = new ExtractTextPlugin({ filename: './[name].[md5:contenthash
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const webpack = require('webpack');
+const WebpackGitHash = require('webpack-git-hash');
 
 const pages = require('./src/pages');
 
@@ -34,10 +35,11 @@ module.exports = (options) => {
     entry: ['./src/app.js'],
     output: {
       path: dest,
-      filename: './assets/scripts/[name].[hash].js',
+      filename: options.isProduction ? './assets/scripts/[name].[githash].js' : './assets/scripts/[name].[hash].js',
       publicPath: './',
     },
     plugins: [
+      new WebpackGitHash(),
       new Webpack.ProvidePlugin({}),
       new CopyWebpackPlugin([
         {from: './src/assets/images', to: './assets/images'}
