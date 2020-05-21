@@ -34,7 +34,7 @@ module.exports = (options) => {
     entry: ['./src/app.js'],
     output: {
       path: dest,
-      filename: './assets/scripts/[name].[contenthash].js',
+      filename: './assets/scripts/[name].[hash].js',
       publicPath: './',
     },
     plugins: [
