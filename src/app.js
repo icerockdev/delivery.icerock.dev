@@ -201,7 +201,7 @@ window.hideSuccessModal = () => {
 };
 
 // Phone input mask
-new Inputmask("[+]9 (999) 999 99 99 [99]", {
+new Inputmask("[+]9 (999) 999 99 99", {
 	showMaskOnHover: false,
 	greedy: false,
 }).mask("input_phone");
