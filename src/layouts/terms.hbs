@@ -1,0 +1,30 @@
+{{! IceRock MAG Inc. Use of this source code is governed by the Mozilla Public License 2.0. }}
+
+<div class="terms__wrap" id="terms_modal">
+  {{> terms_modal }}
+
+  <div class="terms__content">
+    <div class="terms__text">
+      <p>Мы используем файлы cookie, разработанные нашими специалистами и третьими лицами для анализа событий на нашем
+        веб‑сайте, что позволяет нам улучшать взаимодействие с пользователями и обслуживание.</p>
+      <p>Продолжая просмотр страниц нашего сайта, вы принимаете условия его использования. </p>
+      <p>Более подробные сведения смотрите в нашей
+        <a href="/assets/terms.pdf" target="_blank">
+          Политике конфиденциальности
+        </a>
+      </p>
+    </div>
+
+    <div class="terms__text_short">
+      Мы используем файлы cookie
+      <br />
+      <a onClick="showMoreTermsModal()">
+        Что это значит
+      </a>
+    </div>
+
+    <div class="terms__button">
+      {{#> button onClick="hideTermsModal()" }}OK{{/ button}}
+    </div>
+  </div>
+</div>

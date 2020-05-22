@@ -23,6 +23,12 @@ window.onload = function () {
 
 	document.getElementById("preloader").classList.add("preloader_inactive");
 
+	try {
+		if (!localStorage.getItem("have_read_terms")) {
+			document.getElementById("terms_modal").style.display = "flex";
+		}
+	} catch (e) {}
+
 	window.setTimeout(() => {
 		document.getElementById("preloader").style.display = "none";
 	}, 500);
@@ -316,3 +322,18 @@ const onFormSubmit = (event) => {
 document
 	.getElementById("contact_form")
 	.addEventListener("submit", onFormSubmit);
+
+window.hideTermsModal = () => {
+	document.getElementById("terms_modal").style.display = "none";
+	localStorage.setItem("have_read_terms", 1);
+};
+
+window.showMoreTermsModal = () => {
+	document.getElementById("terms_more_modal").style.display = "flex";
+	document.getElementById("terms_more_modal").classList.add("modal_active");
+};
+
+window.hideMoreTermsModal = () => {
+	document.getElementById("terms_more_modal").classList.remove("modal_active");
+	document.getElementById("terms_more_modal").style.display = "none";
+};
