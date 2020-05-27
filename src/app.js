@@ -295,7 +295,7 @@ const onFormSubmit = (event) => {
 
 	if (hasError) return;
 
-	fetch("https://icerockdev.com/landing-sendmail.php", {
+	fetch("https://icerockdev.com/mail.php?type=delivery", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json;charset=utf-8",
