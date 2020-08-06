@@ -4,7 +4,12 @@
   "description": "Icerock webpage",
   "scripts": {
     "start": "nodemon --exec yarn watch --watch src/pages.js",
-    "build": "webpack --config webpack-prod.config.js --colors --optimize-minimize && copyfiles -f src/assets/favicon/* public && rm -rf ./docs && mkdirp docs && mv ./public/* ./docs",
+		"clean": "rm -rf ./docs && mkdirp docs/en",
+		"move": " mv ./public/* ./docs",
+		"move_en": " mv ./public/* ./docs/en",
+		"dist": "webpack --config webpack-prod.config.js --colors --optimize-minimize",
+		"copy": "copyfiles -f src/assets/favicon/* public",
+    "build": "yarn dist && yarn copy && yarn clean && yarn move && LANG=en yarn dist && yarn copy && yarn move_en",
     "watch": "webpack-dev-server --config webpack-dev.config.js --watch --colors -d"
   },
   "keywords": [
