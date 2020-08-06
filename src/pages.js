@@ -9,6 +9,6 @@ const pages = [
     },
     template: './src/pages/home.hbs'
   },
-]
+];
 
-module.exports = pages
+module.exports = pages;

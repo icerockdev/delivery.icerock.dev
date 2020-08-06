@@ -2,12 +2,12 @@
 
 <div class="showcase__phone">
   <div class="showcase__name">
-    {{title}}
+    {{i18n title}}
   </div>
 
   <div class="showcase__text">
     <div class="showcase__info">
-      {{{info}}}
+      {{{i18n info}}}
     </div>
 
     {{#if url}}
@@ -18,7 +18,7 @@
 
     {{#unless url}}
     <div class="showcase__url">
-      Скоро запуск
+      {{i18n "Скоро запуск"}}
     </div>
     {{/unless}}
   </div>

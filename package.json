@@ -40,7 +40,9 @@
     "eslint-loader": "^2.0.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
+    "getenv": "^1.0.0",
     "handlebars": "^4.0.12",
+    "handlebars-helper-i18n": "^0.1.0",
     "handlebars-loader": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.9.4",
@@ -48,6 +50,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "tiny-slider": "^2.9.2",
+    "typograf": "^6.11.1",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
@@ -58,6 +61,7 @@
     "copyfiles": "^2.2.0",
     "copyright-header": "^0.4.6",
     "cross-fetch": "^3.0.4",
-    "inputmask": "^5.0.3"
+    "inputmask": "^5.0.3",
+    "roddeh-i18n": "^1.2.0"
   }
 }

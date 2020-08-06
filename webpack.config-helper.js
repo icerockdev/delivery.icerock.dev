@@ -51,8 +51,9 @@ module.exports = (options) => {
         'process.env': {
           NODE_ENV: JSON.stringify(options.isProduction ? 'production' : 'development')
         }
-      })
-    ],
+      }),
+			new webpack.EnvironmentPlugin(['LANG']),
+		],
     module: {
       rules: [
         {

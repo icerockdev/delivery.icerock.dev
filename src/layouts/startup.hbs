@@ -1,32 +1,40 @@
 {{! IceRock MAG Inc. Use of this source code is governed by the Mozilla Public License 2.0. }}
 
 <div class="screen startup">
-  <div class="container container_center center">
+	<div class="container container_center center">
 
-    <div class="subheading">
-      У&nbsp;нас понятный и&nbsp;прозрачный цикл запуска
-    </div>
+		<div class="subheading">
+			{{i18n "У нас понятный и прозрачный цикл запуска"}}
+		</div>
 
-    <div class="description">
-      Разработка приложения занимает от&nbsp;3-х дней
-    </div>
+		<div class="description">
+			{{i18n "Разработка приложения занимает от 3-х дней"}}
+		</div>
 
-    <div class="startup__stages">
-      {{>stage image="../assets/images/cloud.svg" title="Устанавливаем приложение" }}
-      <img src="../assets/images/startup__arrow.svg" alt="" class="startup__arrow">
-      {{>stage image="../assets/images/launch.svg" title="Запускаем" }}
-      <img src="../assets/images/startup__arrow.svg" alt="" class="startup__arrow">
-      {{>stage image="../assets/images/check.svg" title="Предлагаем комплексное решение по маркетингу" }}
-    </div>
+		<div class="startup__stages">
+			{{>stage image="../assets/images/cloud.svg" title="Устанавливаем приложение" }}
+			<img src="../assets/images/startup__arrow.svg" alt="" class="startup__arrow">
+			{{>stage image="../assets/images/launch.svg" title="Запускаем" }}
+			<img src="../assets/images/startup__arrow.svg" alt="" class="startup__arrow">
+			{{>stage image="../assets/images/check.svg" title="Предлагаем комплексное решение по маркетингу" }}
+		</div>
 
-    <div class="startup__opt">Cоздаем рассылку (серия писем по&nbsp;базе клиентов)</div>
-    <div class="startup__opt">Делаем лендинг</div>
-    <div class="startup__opt">Разработываем рекламные кампаний в&nbsp;Yandex и&nbsp;Google</div>
+		<div class="startup__opt">
+			{{i18n "Cоздаем рассылку (серия писем по базе клиентов)"}}
+		</div>
 
-    <div class="startup__space"></div>
+		<div class="startup__opt">
+			{{i18n "Делаем лендинг"}}
+		</div>
 
-    {{#> contact_button}}
-    Узнать подробности
-    {{/ contact_button}}
-  </div>
+		<div class="startup__opt">
+			{{i18n "Разработываем рекламные кампаний в Yandex и Google"}}
+		</div>
+
+		<div class="startup__space"></div>
+
+		{{#> contact_button}}
+			{{i18n "Узнать подробности"}}
+		{{/ contact_button}}
+	</div>
 </div>

@@ -15,11 +15,11 @@
       <div class="center">
 
         <div class="subheading modal__subheading">
-          Заявка на консультацию
+          {{i18n "Заявка на консультацию"}}
         </div>
 
         <div class="description">
-          Наш менеджер свяжется с вами в ближайшее время
+          {{i18n "Наш менеджер свяжется с вами в ближайшее время"}}
         </div>
       </div>
 
@@ -30,7 +30,9 @@
 
         {{>captcha}}
 
-        {{#> button}}Отправить{{/button}}
+        {{#> button}}
+					{{i18n "Отправить"}}
+				{{/button}}
 
         <div id="html_element"></div>
       </form>
