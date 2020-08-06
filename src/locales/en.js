@@ -2,6 +2,9 @@ import i18n from 'roddeh-i18n';
 
 export default i18n.create({
 	values: {
+		// base.hbs
+		"Платформа для доставки товаров - мобильное приложение для доставки товаров, управление курьерами, мобильное приложение витрины товаров": "Platform for the delivery of goods - a mobile application for the delivery of goods, courier management, a mobile application for displaying goods",
+
 		// title.hbs
 		"Продавайте онлайн и сохраните клиентов": "Sell online and retain your customers",
 		"c помощью мобильного приложения по заказу и доставке":
