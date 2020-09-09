@@ -19,4 +19,6 @@ Run ```yarn build``` and copy build folder to deploy.
 ### Translating
 Wrap russian sentences with `{{i18n "Sentence here"}}` and edit add `locales/en.js with it`. 
 
+Run `LANG=en yarn start` to develop english version.
+
 Build process at package.json produces both `russian` and `english` versions at `./docs/` 
