@@ -4,11 +4,11 @@
   "description": "Icerock webpage",
   "scripts": {
     "start": "nodemon --exec yarn watch --watch src/pages.js",
-		"clean": "rm -rf ./docs && mkdirp docs/en",
-		"move": " mv ./public/* ./docs",
-		"move_en": " mv ./public/* ./docs/en",
-		"dist": "webpack --config webpack-prod.config.js --colors --optimize-minimize",
-		"copy": "copyfiles -f src/assets/favicon/* public",
+    "clean": "rm -rf ./docs && mkdirp docs/en",
+    "move": " mv ./public/* ./docs",
+    "move_en": " mv ./public/* ./docs/en",
+    "dist": "webpack --config webpack-prod.config.js --colors --optimize-minimize",
+    "copy": "copyfiles -f src/assets/favicon/* public",
     "build": "yarn dist && yarn copy && yarn clean && yarn move && LANG=en yarn dist && yarn copy && yarn move_en",
     "watch": "webpack-dev-server --config webpack-dev.config.js --watch --colors -d"
   },
@@ -24,7 +24,7 @@
       "node": true
     },
     "parserOptions": {
-      "ecmaVersion": 6,
+      "ecmaVersion": 2018,
       "sourceType": "module"
     },
     "rules": {
@@ -41,8 +41,8 @@
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.4",
     "css-loader": "^1.0.1",
-    "eslint": "^4.19.1",
-    "eslint-loader": "^2.0.0",
+    "eslint": "^5.0.0",
+    "eslint-loader": "^4.0.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "getenv": "^1.0.0",
@@ -67,6 +67,7 @@
     "copyright-header": "^0.4.6",
     "cross-fetch": "^3.0.4",
     "inputmask": "^5.0.3",
+    "query-string": "^6.13.1",
     "roddeh-i18n": "^1.2.0"
   }
 }

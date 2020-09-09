@@ -6,6 +6,7 @@ import "tiny-slider/src/tiny-slider.scss";
 import "cross-fetch/polyfill";
 import Inputmask from "inputmask";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import qs from 'query-string';
 
 disableBodyScroll(document.body);
 
@@ -276,6 +277,8 @@ const onFormSubmit = (event) => {
 	const comment = commentInput.value;
 	const captcha = captchaInput.value;
 
+	const utm = getUtmData(); // utm data for CRM
+
 	let hasError = false;
 
 	if (name.length < 1) {
@@ -307,6 +310,7 @@ const onFormSubmit = (event) => {
 			captcha,
 			googleId: window.getGa(),
 			referrer: document.referrer || "",
+			...(utm || {}),
 		}),
 	})
 		.then(() => {
@@ -317,6 +321,20 @@ const onFormSubmit = (event) => {
 			window.hideContactModal();
 			window.showSuccessModal();
 		});
+};
+
+const getUtmData = () => {
+	if (!window.location.search) return;
+
+	const data = qs.parse(window.location.search);
+
+	return {
+		utm_source: data.utm_source || "",
+		utm_medium: data.utm_medium || "",
+		utm_campaign: data.utm_campaign || "",
+		utm_id: data.utm_content || "",
+		utm_keyword: data.utm_term || "",
+	};
 };
 
 document
