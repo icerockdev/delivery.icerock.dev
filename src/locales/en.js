@@ -68,6 +68,7 @@ export default i18n.create({
 		"Для сборщика": "Packager",
 		"Для курьера": "Courier",
 		"./assets/images/primetime.png": "./assets/images/en/PrimeTime2.png",
+		"./assets/images/dostavka.png": "./assets/images/en/dostavka_en.png",
 		"./assets/images/client_1.png": "./assets/images/en/3.1%20Product.png",
 		"./assets/images/client_2.png": "./assets/images/en/7.3%20History.png",
 		"./assets/images/client_3.png": "./assets/images/en/5.1%20Checkout.png",
