@@ -67,6 +67,16 @@ export default i18n.create({
 		"Для клиента": "Customer",
 		"Для сборщика": "Packager",
 		"Для курьера": "Courier",
+		"./assets/images/primetime.png": "./assets/images/en/PrimeTime2.png",
+		"./assets/images/client_1.png": "./assets/images/en/3.1%20Product.png",
+		"./assets/images/client_2.png": "./assets/images/en/7.3%20History.png",
+		"./assets/images/client_3.png": "./assets/images/en/5.1%20Checkout.png",
+		"./assets/images/constructor_1.png": "./assets/images/en/2.0%20Order%20list.png",
+		"./assets/images/constructor_2.png": "./assets/images/en/2.2.1%20Order%20list.png",
+		"./assets/images/constructor_3.png": "./assets/images/en/2.3.1%20Order%20list.png",
+		"./assets/images/courier_1.png": "./assets/images/en/2.1.1%20Order%20list.png",
+		"./assets/images/courier_2.png": "./assets/images/en/2.2%20Order%20list.png",
+		"./assets/images/courier_3.png": "./assets/images/en/2.3.2%20Detail%20order.png",
 
 		// how.hbs
 		"Как это работает?": "How does it work?",
