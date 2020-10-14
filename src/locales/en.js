@@ -116,7 +116,7 @@ export default i18n.create({
 		"Кто мы?": "Who are we?\n",
 		"Мы &mdash; небольшая команда специалистов из самого сердца Сибири, её технического центра &mdash; Новосибирска. Мы специализируемся на разработке мобильных приложений для Android и IOS. Наши знания и опыт позволяют нам эффективно решать задачи и создавать качественные, удобные	и эффективные приложения.":
 			"We are 40 developers from the heart of Siberia, its engineering center — city of Novosibirsk. We focused on mobile apps for Android and iOS. Our knowledge and experience are strong enough to meet challenges and produce top-quality, convenient and efficient mobile applications.\n",
-		"Александр Погребняк": "Aleksandr Pogrebynak",
+		"Александр Погребняк": "Aleksandr Pogrebnyak",
 		"Руководитель": "Director",
 		"Валерий Гетманов": "Valeriy Ghetmanov",
 		"Менеджер по работе с клиентами": "Customer Service Manager",
