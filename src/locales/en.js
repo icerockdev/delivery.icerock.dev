@@ -154,19 +154,19 @@ export default i18n.create({
 		"Мобильное приложение с фирменным стилем": "Mobile app in your corporate style",
 		"Данные и сервер находятся у разработчика": "Developer hosts all data and server",
 		"Разработка от 3-х дней": "Three days development term (or little longer)",
-		"Подключение 200 т.руб, ежемесячно 55 т.руб": "Initial cost 2,000&nbsp;euro",
+		"Подключение 200 т.руб, ежемесячно 55 т.руб": "Initial cost €2,000",
 		"&laquo;Коробочное решение&raquo;": "«Box» solution",
 		"Создаем фирменное мобильное приложение": "Mobile app in your corporate style",
 		"Сервер и все данные принадлежат вам": "You host all data and server",
 		"Можете подключить любой сервис или интеграции": "You can integrate any external service",
 		"Разработка от 2-х недель, стоимость: 1&minus;1,5 млн. руб":
-			"Two weeks development term (or little longer), cost from 10,000&nbsp;euro",
+			"Two weeks development term (or little longer), cost from €10,000",
 
 		"Индивидуальная разработка": "Custom-designed application",
 		"Разрабатываем с &laquo;нуля&raquo; именно под ваш бренд": "Developed «from the ground up» to meet your specific requirements",
 		"Вы владеете сервером и данными": "You host all data and server",
 		"Разработка от 4-х месяцев, стоимость от 3 млн.руб":
-			"Four months development term (or little longer), cost from 40,000&nbsp;euro",
+			"Four months development term (or little longer), cost from €40,000",
 
 		// modal.hbs
 		"Пожалуйста, заполните это поле": "Please, fill this field",
